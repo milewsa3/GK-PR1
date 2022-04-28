@@ -85,7 +85,6 @@ export default class Scene {
   }
 
   draw() {
-    console.log('drawing')
     this.runPaintersAlgorithm();
     let polygons = this.makeProjection();
 
@@ -95,7 +94,8 @@ export default class Scene {
       let [first, ...tail] = polygon.points;
       if (!first) return;
 
-      this.ctx.fillStyle = polygon.color;
+      this.ctx.strokeStyle = polygon.color
+      this.ctx.lineWidth = 3;
       this.ctx.beginPath();
 
       this.ctx.moveTo(this.c.width / 2 + first.x, this.c.height / 2 - first.y);
@@ -104,7 +104,7 @@ export default class Scene {
       });
 
       this.ctx.closePath();
-      this.ctx.fill();
+      this.ctx.stroke();
     });
   }
 }

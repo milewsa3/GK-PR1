@@ -9,7 +9,7 @@ export default class Cuboid {
     this.z = z;
     this.width = width;
     this.height = height;
-    this.color = color;
+    this.color = color
     this._polygons = [];
 
     this.createWalls();
