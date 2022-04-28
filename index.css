@@ -1,5 +1,12 @@
 body {
   font-family: "Roboto", sans-serif;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(27, 27, 29, 1) 35%,
+    rgba(4, 45, 54, 1) 100%
+  );
+  color: white;
 }
 
 #root {
@@ -7,14 +14,26 @@ body {
   gap: 25px;
 }
 
+#canvas {
+  background-color: rgb(26, 26, 26);
+}
+
 .paper {
-  border: 5px solid #c3c3c3;
-  -webkit-box-shadow: 8px 8px 15px -8px rgba(66, 68, 90, 1);
-  -moz-box-shadow: 8px 8px 15px -8px rgba(66, 68, 90, 1);
-  box-shadow: 8px 8px 15px -8px rgba(66, 68, 90, 1);
+  border: 5px solid #ebebeb;
+  -webkit-box-shadow: 8px 8px 28px -6px rgba(208, 210, 226, 1);
+  -moz-box-shadow: 8px 8px 28px -6px rgba(208, 210, 226, 1);
+  box-shadow: 8px 8px 28px -6px rgba(208, 210, 226, 1);
 }
 
 #instructions {
-  font-size: 24px;
+  font-size: 22px;
   padding: 30px;
+  background: rgb(241, 241, 241);
+  background: linear-gradient(
+    90deg,
+    rgba(241, 241, 241, 1) 0%,
+    rgba(208, 208, 226, 0.9999709356398809) 35%,
+    rgba(181, 236, 249, 1) 100%
+  );
+  color: black;
 }

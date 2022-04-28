@@ -94,8 +94,10 @@ export default class Scene {
       let [first, ...tail] = polygon.points;
       if (!first) return;
 
-      this.ctx.strokeStyle = polygon.color
-      this.ctx.lineWidth = 3;
+      this.ctx.strokeStyle = polygon.color;
+      this.ctx.shadowBlur = 4;
+      this.ctx.shadowColor = "white";
+      this.ctx.lineWidth = 2;
       this.ctx.beginPath();
 
       this.ctx.moveTo(this.c.width / 2 + first.x, this.c.height / 2 - first.y);

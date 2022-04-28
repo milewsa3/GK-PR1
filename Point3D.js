@@ -1,5 +1,5 @@
 export default class Point3D {
-  static w = 1.0;
+  w = 1.0;
 
   constructor(x, y, z) {
     this.x = x;
