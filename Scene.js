@@ -8,7 +8,7 @@ export default class Scene {
   constructor(canvasId, figures) {
     this.c = document.getElementById(canvasId);
     this.ctx = this.c.getContext("2d");
-    this.vpd = 200;
+    this.vpd = 500; // kąt widzenia kamery => 1200 / 500 = 2.4  && 800 / 500 = 1.6
 
     this.setPolygons(figures);
     this.setVectors();
@@ -96,7 +96,7 @@ export default class Scene {
 
       this.ctx.strokeStyle = polygon.color;
       this.ctx.shadowBlur = 4;
-      this.ctx.shadowColor = "white";
+      this.ctx.shadowColor = polygon.color;
       this.ctx.lineWidth = 2;
       this.ctx.beginPath();
 
