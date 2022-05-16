@@ -97,6 +97,7 @@ export default class Scene {
       this.ctx.strokeStyle = polygon.color;
       this.ctx.shadowBlur = 4;
       this.ctx.shadowColor = polygon.color;
+      this.ctx.fillStyle = 'rgb(26, 26, 26)';
       this.ctx.lineWidth = 2;
       this.ctx.beginPath();
 
