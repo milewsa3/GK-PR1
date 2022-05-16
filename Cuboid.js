@@ -3,12 +3,13 @@ import Polygon from "./Polygon.js";
 import Vector from "./Vector.js";
 
 export default class Cuboid {
-  constructor(x, y, z, width, height, color) {
+  constructor(x, y, z, width, height, depth, color) {
     this.x = x;
     this.y = y;
     this.z = z;
     this.width = width;
     this.height = height;
+    this.depth = depth;
     this.color = color;
     this._polygons = [];
 
@@ -64,17 +65,17 @@ export default class Cuboid {
 
     vectors.push(
       new Vector(
-        new Point3D(this.x, this.y, this.z + this.height),
-        new Point3D(this.x + this.width, this.y, this.z + this.height)
+        new Point3D(this.x, this.y, this.z + this.depth),
+        new Point3D(this.x + this.width, this.y, this.z + this.depth)
       )
     );
     vectors.push(
       new Vector(
-        new Point3D(this.x + this.width, this.y, this.z + this.height),
+        new Point3D(this.x + this.width, this.y, this.z + this.depth),
         new Point3D(
           this.x + this.width,
           this.y + this.height,
-          this.z + this.height
+          this.z + this.depth
         )
       )
     );
@@ -83,15 +84,15 @@ export default class Cuboid {
         new Point3D(
           this.x + this.width,
           this.y + this.height,
-          this.z + this.height
+          this.z + this.depth
         ),
-        new Point3D(this.x, this.y + this.height, this.z + this.height)
+        new Point3D(this.x, this.y + this.height, this.z + this.depth)
       )
     );
     vectors.push(
       new Vector(
-        new Point3D(this.x, this.y + this.height, this.z + this.height),
-        new Point3D(this.x, this.y, this.z + this.height)
+        new Point3D(this.x, this.y + this.height, this.z + this.depth),
+        new Point3D(this.x, this.y, this.z + this.depth)
       )
     );
 
@@ -104,18 +105,18 @@ export default class Cuboid {
     vectors.push(
       new Vector(
         new Point3D(this.x, this.y, this.z),
-        new Point3D(this.x, this.y, this.z + this.height)
+        new Point3D(this.x, this.y, this.z + this.depth)
       )
     );
     vectors.push(
       new Vector(
-        new Point3D(this.x, this.y, this.z + this.height),
-        new Point3D(this.x + this.width, this.y, this.z + this.height)
+        new Point3D(this.x, this.y, this.z + this.depth),
+        new Point3D(this.x + this.width, this.y, this.z + this.depth)
       )
     );
     vectors.push(
       new Vector(
-        new Point3D(this.x + this.width, this.y, this.z + this.height),
+        new Point3D(this.x + this.width, this.y, this.z + this.depth),
         new Point3D(this.x + this.width, this.y, this.z)
       )
     );
@@ -135,16 +136,16 @@ export default class Cuboid {
     vectors.push(
       new Vector(
         new Point3D(this.x, this.y + this.height, this.z),
-        new Point3D(this.x, this.y + this.height, this.z + this.height)
+        new Point3D(this.x, this.y + this.height, this.z + this.depth)
       )
     );
     vectors.push(
       new Vector(
-        new Point3D(this.x, this.y + this.height, this.z + this.height),
+        new Point3D(this.x, this.y + this.height, this.z + this.depth),
         new Point3D(
           this.x + this.width,
           this.y + this.height,
-          this.z + this.height
+          this.z + this.depth
         )
       )
     );
@@ -153,7 +154,7 @@ export default class Cuboid {
         new Point3D(
           this.x + this.width,
           this.y + this.height,
-          this.z + this.height
+          this.z + this.depth
         ),
         new Point3D(this.x + this.width, this.y + this.height, this.z)
       )
@@ -174,18 +175,18 @@ export default class Cuboid {
     vectors.push(
       new Vector(
         new Point3D(this.x, this.y, this.z),
-        new Point3D(this.x, this.y, this.z + this.height)
+        new Point3D(this.x, this.y, this.z + this.depth)
       )
     );
     vectors.push(
       new Vector(
-        new Point3D(this.x, this.y, this.z + this.height),
-        new Point3D(this.x, this.y + this.height, this.z + this.height)
+        new Point3D(this.x, this.y, this.z + this.depth),
+        new Point3D(this.x, this.y + this.height, this.z + this.depth)
       )
     );
     vectors.push(
       new Vector(
-        new Point3D(this.x, this.y + this.height, this.z + this.height),
+        new Point3D(this.x, this.y + this.height, this.z + this.depth),
         new Point3D(this.x, this.y + this.height, this.z)
       )
     );
@@ -205,16 +206,16 @@ export default class Cuboid {
     vectors.push(
       new Vector(
         new Point3D(this.x + this.width, this.y, this.z),
-        new Point3D(this.x + this.width, this.y, this.z + this.height)
+        new Point3D(this.x + this.width, this.y, this.z + this.depth)
       )
     );
     vectors.push(
       new Vector(
-        new Point3D(this.x + this.width, this.y, this.z + this.height),
+        new Point3D(this.x + this.width, this.y, this.z + this.depth),
         new Point3D(
           this.x + this.width,
           this.y + this.height,
-          this.z + this.height
+          this.z + this.depth
         )
       )
     );
@@ -223,7 +224,7 @@ export default class Cuboid {
         new Point3D(
           this.x + this.width,
           this.y + this.height,
-          this.z + this.height
+          this.z + this.depth
         ),
         new Point3D(this.x + this.width, this.y + this.height, this.z)
       )

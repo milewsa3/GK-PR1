@@ -93,12 +93,8 @@ export default class Scene {
     polygons.forEach((polygon) => {
       let [first, ...tail] = polygon.points;
       if (!first) return;
-
-      this.ctx.strokeStyle = polygon.color;
-      this.ctx.shadowBlur = 4;
-      this.ctx.shadowColor = polygon.color;
-      this.ctx.fillStyle = 'rgb(26, 26, 26)';
-      this.ctx.lineWidth = 2;
+      
+      this.ctx.fillStyle = polygon.color;
       this.ctx.beginPath();
 
       this.ctx.moveTo(this.c.width / 2 + first.x, this.c.height / 2 - first.y);
@@ -108,7 +104,6 @@ export default class Scene {
 
       this.ctx.closePath();
       this.ctx.fill();
-      this.ctx.stroke();
     });
   }
 }
