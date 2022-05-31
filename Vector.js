@@ -1,7 +1,8 @@
 export default class Vector {
-  constructor(a, b) {
+  constructor(a, b, id) {
     this._a = a;
     this._b = b;
+    this._id = id;
   }
 
   get a() {
@@ -18,5 +19,13 @@ export default class Vector {
 
   set b(value) {
     this._b = value;
+  }
+
+  get id() {
+    return this._id;
+  }
+
+  set id(value) {
+    this._id = value;
   }
 }

@@ -1,10 +1,35 @@
 export default class Point3D {
   w = 1.0;
 
-  constructor(x, y, z) {
-    this.x = x;
-    this.y = y;
-    this.z = z;
+  constructor(x, y, z, id) {
+    this._x = x;
+    this._y = y;
+    this._z = z;
+    this.id = id;
+  }
+
+  get x() {
+    return this._x;
+  }
+
+  set x(x) {
+    this._x = x;
+  }
+
+  get y() {
+    return this._y;
+  }
+
+  set y(y) {
+    this._y = y;
+  }
+
+  get z() {
+    return this._z;
+  }
+
+  set z(z) {
+    this._z = z;
   }
 
   toMatrix() {

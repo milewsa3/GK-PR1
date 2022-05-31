@@ -15,11 +15,15 @@ export default class OBJLoader {
     const points = [];
     const polygons = [];
 
+    let counter = 1;
+    let pointCounter = 1;
+    let vectorPointCounter = 1;
+
     lines.forEach((line) => {
       if (line.startsWith("v")) {
         const lineSplitted = line.split(/[ ,]+/);
         points.push(
-          new Point3D(lineSplitted[1], lineSplitted[2], lineSplitted[3])
+          new Point3D(lineSplitted[1], lineSplitted[2], lineSplitted[3], pointCounter++)
         );
       }
 
@@ -29,16 +33,19 @@ export default class OBJLoader {
           new Polygon(
             [
               new Vector(
-                points[lineSplitted[1] - 1],
-                points[lineSplitted[2] - 1]
+                new Point3D(points[lineSplitted[1] - 1].x, points[lineSplitted[1] - 1].y, points[lineSplitted[1] - 1].z, vectorPointCounter++),
+                new Point3D(points[lineSplitted[2] - 1].x, points[lineSplitted[2] - 1].y, points[lineSplitted[2] - 1].z, vectorPointCounter++),
+                counter++
               ),
               new Vector(
-                points[lineSplitted[2] - 1],
-                points[lineSplitted[3] - 1]
+                new Point3D(points[lineSplitted[2] - 1].x, points[lineSplitted[2] - 1].y, points[lineSplitted[2] - 1].z, vectorPointCounter++),
+                new Point3D(points[lineSplitted[3] - 1].x, points[lineSplitted[3] - 1].y, points[lineSplitted[3] - 1].z, vectorPointCounter++),
+                counter++
               ),
               new Vector(
-                points[lineSplitted[3] - 1],
-                points[lineSplitted[1] - 1]
+                new Point3D(points[lineSplitted[3] - 1].x, points[lineSplitted[3] - 1].y, points[lineSplitted[3] - 1].z, vectorPointCounter++),
+                new Point3D(points[lineSplitted[1] - 1].x, points[lineSplitted[1] - 1].y, points[lineSplitted[1] - 1].z, vectorPointCounter++),
+                counter++
               ),
             ],
             this.color
