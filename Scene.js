@@ -8,7 +8,7 @@ export default class Scene {
   constructor(canvasId, figures) {
     this.c = document.getElementById(canvasId);
     this.ctx = this.c.getContext("2d");
-    this.vpd = 500; // kąt widzenia kamery => 1200 / 500 = 2.4  && 800 / 500 = 1.6
+    this.vpd = 800; // kąt widzenia kamery => 1200 / 500 = 2.4  && 800 / 500 = 1.6
 
     this.setPolygons(figures);
     this.setVectors();
