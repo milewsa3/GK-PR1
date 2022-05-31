@@ -103,6 +103,7 @@ export default class Scene {
       });
 
       this.ctx.closePath();
+      this.ctx.stroke();
       this.ctx.fill();
     });
   }

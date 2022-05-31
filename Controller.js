@@ -1,4 +1,6 @@
 import Transform from "./Transform.js";
+import Cuboid from "./Cuboid.js";
+import Scene from "./Scene.js";
 
 export default class Controller {
   constructor(scene) {

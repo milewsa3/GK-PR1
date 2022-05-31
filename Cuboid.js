@@ -22,11 +22,11 @@ export default class Cuboid {
 
   createWalls() {
     this.createFrontWall();
-    // this.createBackWall();
-    // this.createBottomWall();
-    // this.createTopWall();
-    // this.createLeftWall();
-    // this.createRightWall();
+    this.createBackWall();
+    this.createBottomWall();
+    this.createTopWall();
+    this.createLeftWall();
+    this.createRightWall();
   }
 
   createFrontWall() {
