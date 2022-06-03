@@ -9,6 +9,7 @@ export default class Scene {
     this.c = document.getElementById(canvasId);
     this.ctx = this.c.getContext("2d");
     this.vpd = 800; // kąt widzenia kamery => 1200 / 500 = 2.4  && 800 / 500 = 1.6
+    this.lightVector = new Vector(new Point3D(0, 0, 0), new Point3D(-1, -2, 2));
 
     this.setPolygons(figures);
     this.setVectors();
@@ -84,8 +85,13 @@ export default class Scene {
     this._polygons.sort(PaintersAlgorithm.compare);
   }
 
+  runPhongShading() {
+    this._polygons.forEach((polygon) => polygon.updateColor(this.lightVector));
+  }
+
   draw() {
     this.runPaintersAlgorithm();
+    this.runPhongShading();
     let polygons = this.makeProjection();
 
     this.ctx.clearRect(0, 0, this.c.width, this.c.height);
@@ -93,7 +99,7 @@ export default class Scene {
     polygons.forEach((polygon) => {
       let [first, ...tail] = polygon.points;
       if (!first) return;
-      
+
       this.ctx.fillStyle = polygon.color;
       this.ctx.beginPath();
 

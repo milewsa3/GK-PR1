@@ -9,7 +9,7 @@ function readObjectFile(e) {
   }
   var reader = new FileReader();
   reader.onload = e => {
-    let loader = new OBJLoader(e.target.result, 'green')
+    let loader = new OBJLoader(e.target.Fresult, 'rgb(60, 179, 113)')
     let loadedObject = loader.load()
     new Controller(new Scene("canvas", [loadedObject])).run()
   };

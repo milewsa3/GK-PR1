@@ -1,11 +1,18 @@
 import Point3D from "./Point3D.js";
+import Vector from "./Vector.js";
+import Light from "./Light.js";
 
 export default class Polygon {
-  constructor(vectors, color) {
+  constructor(vectors, baseColor) {
     this._vectors = vectors;
-    this._color = color;
+    this._baseColor = baseColor;
+    this._color = baseColor;
 
     this.setPoints();
+  }
+
+  get baseColor() {
+    return this._baseColor;
   }
 
   get color() {
@@ -51,5 +58,31 @@ export default class Polygon {
 
   minZ() {
     return Math.min(...this.points.map((p) => p.z));
+  }
+
+  updateColor(light) {
+    const p1 = this._points[0];
+    const p2 = this._points[1];
+    const p3 = this._points[2];
+    const v1 = new Vector(p2.clone(), p1.clone());
+    const v2 = new Vector(p2.clone(), p3.clone());
+    const normal = Vector.normalize(Vector.cross(v1, v2));
+    const dot = Vector.dot(normal, light);
+    let cos = 0;
+    if (dot > 0.15) {
+      cos = Math.pow(
+        Vector.cos(
+          new Vector(p1.clone(), new Point3D(0, 0, 0)),
+          Vector.getReboundVector(normal, light.b)
+        ),
+        Light.N
+      );
+    }
+    let lightRatio =
+      Light.IP * (Light.KD * dot + Light.KS * cos) + Light.AMBIENT;
+    lightRatio = Math.max(Light.MIN, Math.min(Light.MAX, lightRatio));
+    this._color = `rgb(${parseInt(60 * lightRatio)}, ${parseInt(
+      179 * lightRatio
+    )}, ${parseInt(113 * lightRatio)})`;
   }
 }
