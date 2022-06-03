@@ -1,11 +1,10 @@
 export default class Point3D {
   w = 1.0;
 
-  constructor(x, y, z, id) {
+  constructor(x, y, z) {
     this._x = x;
     this._y = y;
     this._z = z;
-    this.id = id;
   }
 
   get x() {
@@ -30,6 +29,10 @@ export default class Point3D {
 
   set z(z) {
     this._z = z;
+  }
+
+  clone() {
+    return Object.assign(Object.create(Object.getPrototypeOf(this)), this)
   }
 
   toMatrix() {
