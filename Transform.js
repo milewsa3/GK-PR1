@@ -18,6 +18,9 @@ export default class Transform {
 
       vector.a.updateFromMatrix(resultA._data);
       vector.b.updateFromMatrix(resultB._data);
+      vector.x = vector.b.x - vector.a.x
+      vector.y = vector.b.y - vector.a.y
+      vector.z = vector.b.z - vector.a.z
     });
   }
 

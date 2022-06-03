@@ -16,51 +16,51 @@ export default class Controller {
         const keyName = event.key;
 
         if (keyName === "w") {
-          new Transform(this.scene.vectors).moveUp();
+          new Transform([...this.scene.vectors, this.scene.lightVector]).moveUp();
         }
 
         if (keyName === "s") {
-          new Transform(this.scene.vectors).moveDown();
+          new Transform([...this.scene.vectors, this.scene.lightVector]).moveDown();
         }
 
         if (keyName === "a") {
-          new Transform(this.scene.vectors).moveLeft();
+          new Transform([...this.scene.vectors, this.scene.lightVector]).moveLeft();
         }
 
         if (keyName === "d") {
-          new Transform(this.scene.vectors).moveRight();
+          new Transform([...this.scene.vectors, this.scene.lightVector]).moveRight();
         }
 
         if (keyName === "e") {
-          new Transform(this.scene.vectors).moveBack();
+          new Transform([...this.scene.vectors, this.scene.lightVector]).moveBack();
         }
 
         if (keyName === "q") {
-          new Transform(this.scene.vectors).moveForward();
+          new Transform([...this.scene.vectors, this.scene.lightVector]).moveForward();
         }
 
         if (keyName === "ArrowLeft") {
-          new Transform(this.scene.vectors).rotateOX(1);
+          new Transform([...this.scene.vectors, this.scene.lightVector]).rotateOX(1);
         }
 
         if (keyName === "ArrowRight") {
-          new Transform(this.scene.vectors).rotateOX(-1);
+          new Transform([...this.scene.vectors, this.scene.lightVector]).rotateOX(-1);
         }
 
         if (keyName === "ArrowUp") {
-          new Transform(this.scene.vectors).rotateOY(1);
+          new Transform([...this.scene.vectors, this.scene.lightVector]).rotateOY(1);
         }
 
         if (keyName === "ArrowDown") {
-          new Transform(this.scene.vectors).rotateOY(-1);
+          new Transform([...this.scene.vectors, this.scene.lightVector]).rotateOY(-1);
         }
 
         if (keyName === "PageUp") {
-          new Transform(this.scene.vectors).rotateOZ(1);
+          new Transform([...this.scene.vectors, this.scene.lightVector]).rotateOZ(1);
         }
 
         if (keyName === "PageDown") {
-          new Transform(this.scene.vectors).rotateOZ(-1);
+          new Transform([...this.scene.vectors, this.scene.lightVector]).rotateOZ(-1);
         }
 
         if (keyName === "=") {

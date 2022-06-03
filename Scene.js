@@ -9,7 +9,7 @@ export default class Scene {
     this.c = document.getElementById(canvasId);
     this.ctx = this.c.getContext("2d");
     this.vpd = 800; // kąt widzenia kamery => 1200 / 500 = 2.4  && 800 / 500 = 1.6
-    this.lightVector = new Vector(new Point3D(0, 0, 0), new Point3D(-1, -2, 2));
+    this._lightVector = new Vector(new Point3D(0, 0, 0), new Point3D(-1, -2, 2));
 
     this.setPolygons(figures);
     this.setVectors();
@@ -21,6 +21,10 @@ export default class Scene {
 
   get vectors() {
     return this._vectors;
+  }
+
+  get lightVector() {
+    return this._lightVector
   }
 
   zoomOut() {
@@ -86,7 +90,7 @@ export default class Scene {
   }
 
   runPhongShading() {
-    this._polygons.forEach((polygon) => polygon.updateColor(this.lightVector));
+    this._polygons.forEach((polygon) => polygon.updateColor(this._lightVector));
   }
 
   draw() {
